@@ -1,0 +1,617 @@
+
+function siguienteId(coleccion) {
+    const sequenceDocument = db.counters.findOneAndUpdate(
+        { _id: `${coleccion}Id` },
+        { $inc: { sequence_value: 1 } },
+        { returnDocument: "after" }
+    );
+    return sequenceDocument.sequence_value;
+}
+
+use("db_mongo_bodegas");
+db.historiales.insertMany([
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 7,
+        id_bodega_origen: 12,
+        id_bodega_destino: 18,
+        id_inventario: 18,
+        created_by: 18
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 9,
+        id_bodega_origen: 11,
+        id_bodega_destino: 12,
+        id_inventario: 18,
+        created_by: 15
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 7,
+        id_bodega_origen: 29,
+        id_bodega_destino: 30,
+        id_inventario: 36,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 666,
+        id_bodega_origen: 26,
+        id_bodega_destino: 24,
+        id_inventario: 27,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 100,
+        id_bodega_origen: 19,
+        id_bodega_destino: 18,
+        id_inventario: 41,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 25,
+        id_bodega_origen: 19,
+        id_bodega_destino: 26,
+        id_inventario: 41,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 25,
+        id_bodega_origen: 19,
+        id_bodega_destino: 26,
+        id_inventario: 41,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 300,
+        id_bodega_origen: 18,
+        id_bodega_destino: 12,
+        id_inventario: 42,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 300,
+        id_bodega_origen: 18,
+        id_bodega_destino: 12,
+        id_inventario: 42,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 1,
+        id_bodega_origen: 12,
+        id_bodega_destino: 11,
+        id_inventario: 67,
+        created_at: ISODate('2022-07-11'),
+        updated_at: ISODate('2022-07-11')
+    }
+]);
+
+
+use("db_mongo_bodegas");
+db.users.insertMany([
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'Lucho',
+        email: 'Lucho@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'Lucheto',
+        email: 'Lucheto@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'Juan',
+        email: 'Juan@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'Andres',
+        email: 'Andres@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'David',
+        email: 'David@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'John',
+        email: 'John@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'Cristian',
+        email: 'Cristian@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'Diego',
+        email: 'Diego@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'Ivan',
+        email: 'Ivan@hotmail.com',
+        estado: 1,
+        password: '12345'
+    },
+    {
+        _id: Number(siguienteId("users")),
+        nombre: 'Daniela',
+        email: 'Daniela@hotmail.com',
+        estado: 1,
+        password: '12345'
+    }
+]);
+
+
+use("db_mongo_bodegas");
+db.bodegas.insertMany([
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega0',
+        id_responsable: 16,
+        estado: 1,
+        created_by: 16,
+        created_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega1',
+        id_responsable: 18,
+        estado: 1,
+        created_by: 18,
+        created_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega2',
+        id_responsable: 18,
+        estado: 1,
+        created_by: 18,
+        created_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega7',
+        id_responsable: 17,
+        estado: 1,
+        created_by: 17,
+        created_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega8',
+        id_responsable: 11,
+        estado: 1,
+        created_by: 11,
+        created_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega9',
+        id_responsable: 18,
+        estado: 1,
+        created_by: 18,
+        created_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'jsjsjss',
+        id_responsable: 13,
+        estado: 1,
+        created_at: ISODate('2022-06-02'),
+        updated_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'leeche',
+        id_responsable: 13,
+        estado: 1,
+        created_at: ISODate('2022-06-02'),
+        updated_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'soto1',
+        id_responsable: 15,
+        estado: 1,
+        created_at: ISODate('2022-06-02'),
+        updated_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'soto2',
+        id_responsable: 15,
+        estado: 1,
+        created_at: ISODate('2022-06-02'),
+        updated_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'prueba',
+        id_responsable: 12,
+        estado: 1,
+        created_at: ISODate('2022-06-02'),
+        updated_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'fsfdf',
+        id_responsable: 13,
+        estado: 1,
+        created_at: ISODate('2022-06-02'),
+        updated_at: ISODate('2022-06-02')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'prueba',
+        id_responsable: 12,
+        estado: 1,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodegajuanpablo',
+        id_responsable: 19,
+        estado: 1,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'micasa',
+        id_responsable: 18,
+        estado: 1,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'casamedrano',
+        id_responsable: 17,
+        estado: 1,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'centro',
+        id_responsable: 18,
+        estado: 1,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega35',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-06-24'),
+        updated_at: ISODate('2022-06-24')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'asdefg',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-06-29'),
+        updated_at: ISODate('2022-06-29')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega fg',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-06-29'),
+        updated_at: ISODate('2022-06-29')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega fg',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-06-29'),
+        updated_at: ISODate('2022-06-29')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega fg 2',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-06-29'),
+        updated_at: ISODate('2022-06-29')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'bodega fg 2',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-06-29'),
+        updated_at: ISODate('2022-06-29')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'Bodega 13.2',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-07-01'),
+        updated_at: ISODate('2022-07-01')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'Bodega Developer 13.2',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-07-01'),
+        updated_at: ISODate('2022-07-01')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'Bodega Developer 13.2',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-07-11'),
+        updated_at: ISODate('2022-07-11')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'Bodega 59',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2022-07-11'),
+        updated_at: ISODate('2022-07-11')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'Bodega Anderson Atuesta',
+        id_responsable: 11,
+        estado: 11,
+        created_at: ISODate('2022-07-21'),
+        updated_at: ISODate('2022-07-21')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'Bodega Anderson Atuesta555',
+        id_responsable: 11,
+        estado: 11,
+        created_at: ISODate('2022-07-21'),
+        updated_at: ISODate('2022-07-21')
+    },
+    {
+        _id: Number(siguienteId("bodegas")),
+        nombre: 'A Bodega',
+        id_responsable: 11,
+        estado: 1,
+        created_at: ISODate('2023-05-25'),
+        updated_at: ISODate('2023-05-25')
+    }
+]);
+
+
+use("db_mongo_bodegas");
+db.productos.insertMany([
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto0',
+        descripcion: 'producto0',
+        estado: 1,
+        created_by: 16
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto1',
+        descripcion: 'producto1',
+        estado: 1,
+        created_by: 14
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto2',
+        descripcion: 'producto2',
+        estado: 1,
+        created_by: 13
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto3',
+        descripcion: 'producto3',
+        estado: 1,
+        created_by: 20
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto4',
+        descripcion: 'producto4',
+        estado: 1,
+        created_by: 19
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto5',
+        descripcion: 'producto5',
+        estado: 1,
+        created_by: 11
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto6',
+        descripcion: 'producto6',
+        estado: 1,
+        created_by: 12
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto7',
+        descripcion: 'producto7',
+        estado: 1,
+        created_by: 11
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto8',
+        descripcion: 'producto8',
+        estado: 1,
+        created_by: 11
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto9',
+        descripcion: 'producto9',
+        estado: 1,
+        created_by: 19
+    }
+]);
+
+
+use("db_mongo_bodegas");
+db.inventarios.insertMany([
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 12,
+        id_producto: 18,
+        cantidad: 103,
+        created_by: 11,
+        created_at: ISODate('2023-05-26')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 19,
+        id_producto: 18,
+        cantidad: 220,
+        created_by: 19
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 20,
+        id_producto: 13,
+        cantidad: 13,
+        created_by: 14
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 19,
+        id_producto: 14,
+        cantidad: 7,
+        created_by: 15
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 12,
+        id_producto: 27,
+        cantidad: 9,
+        created_by: 16
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 19,
+        id_producto: 23,
+        cantidad: 45666,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 26,
+        id_producto: 24,
+        cantidad: 45000,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 26,
+        id_producto: 25,
+        cantidad: 45666,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 26,
+        id_producto: 26,
+        cantidad: 6000,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 28,
+        id_producto: 27,
+        cantidad: 89700,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 23,
+        id_producto: 28,
+        cantidad: 9999,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 18,
+        id_producto: 18,
+        cantidad: 7898,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 18,
+        id_producto: 27,
+        cantidad: 55281,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 29,
+        id_producto: 29,
+        cantidad: 5993,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 29,
+        id_producto: 27,
+        cantidad: 5005,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    }
+]);

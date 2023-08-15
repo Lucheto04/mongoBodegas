@@ -1,0 +1,279 @@
+use("db_mongo_bodegas");
+db.createCollection("counters");
+db.counters.insertMany([
+    { _id: "usersId", sequence_value: 0 },
+    { _id: "bodegasId", sequence_value: 0 },
+    { _id: "productosId", sequence_value: 0 },
+    { _id: "inventariosId", sequence_value: 0 },
+    { _id: "historialesId", sequence_value: 0 }
+]);
+
+
+/* Esquema de 'users' */
+use("db_mongo_bodegas");
+db.createCollection("users", {
+    capped: true,
+    size: 5000,
+    max: 15,
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            additionalProperties: false,
+            required: ['_id', 'nombre', 'email', 'estado','password'],
+            properties: {
+                _id: {
+                    bsonType: "int"
+                },
+                nombre: {
+                    bsonType: 'string',
+                    description:  `{"status": "402", "message": 'El parametro Nombre-Usuario es obligatorio y debe ser un string.'}`
+                },
+                email: {
+                    bsonType: 'string',
+                    description: `{"status": "402", "message": 'El parametro Email-Usuario es obligatorio y debe ser un string.'}`
+                },
+                estado: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Estado-Usuario es obligatorio y debe ser un numero entero (int).'}`
+                },
+                created_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Creado-Por debe ser un numero entero (int).'}`
+                },
+                update_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Por debe ser un numero entero (int).'}`
+                },
+                password: {
+                    bsonType: 'string',
+                    description: `{"status": "402", "message": 'El parametro Contraseña-Usuario es obligatorio y debe ser un string.'}`
+                },
+                created_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Creado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                updated_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                deleted_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Eliminado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                }
+            }
+        }
+    }
+});
+
+/* Esquema de 'bodegas' */
+use("db_mongo_bodegas");
+db.createCollection("bodegas", {
+    capped: true,
+    size: 5000,
+    max: 60,
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            additionalProperties: false,
+            required: ['_id', 'nombre', 'id_responsable', 'estado'],
+            properties: {
+                _id: {
+                    bsonType: "int"
+                },
+                nombre: {
+                    bsonType: 'string',
+                    description: `{"status": "402", "message": 'El parametro Nombre-Bodega es obligatorio y debe ser un string.'}`
+                },
+                id_responsable: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Responsable-id es obligatorio y debe ser un numero entero (int).'}`
+                },
+                estado: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Estado-Bodega es obligatorio y debe ser un numero entero (int).'}`
+                },
+                created_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Creado-Por debe ser un numero entero (int).'}`
+                },
+                update_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Por debe ser un numero entero (int).'}`
+                },
+                created_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Creado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                updated_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                deleted_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Eliminado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                }
+            }
+        }
+    }
+});
+
+/* Esquema de 'productos' */
+use("db_mongo_bodegas");
+db.createCollection("productos", {
+    capped: true,
+    size: 5000,
+    max: 25,
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            additionalProperties: false,
+            required: ['_id', 'nombre', 'estado', 'created_by'],
+            properties: {
+                _id: {
+                    bsonType: "int"
+                },
+                nombre: {
+                    bsonType: 'string',
+                    description: `{"status": "402", "message": 'El parametro Nombre-Producto es obligatorio y debe ser un string.'}`
+                },
+                descripcion: {
+                    bsonType: 'string',
+                    description: `{"status": "402", "message": 'El parametro Descripcion-Producto es obligatorio y debe ser un string.'}`
+                },
+                estado: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Estado-Producto es obligatorio y debe ser un numero entero (int).'}`
+                },
+                created_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Creado-Por debe ser un numero entero (int).'}`
+                },
+                update_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Por debe ser un numero entero (int).'}`
+                },
+                created_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Creado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                updated_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                deleted_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Eliminado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                }
+            }
+        }
+    }
+});
+
+/* Esquema de 'inventarios' */
+use("db_mongo_bodegas");
+db.createCollection("inventarios", {
+    capped: true,
+    size: 5000,
+    max: 30,
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            additionalProperties: false,
+            required: ['_id', 'id_bodega', 'id_producto', 'cantidad'],
+            properties: {
+                _id: {
+                    bsonType: "int"
+                },
+                id_bodega: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Bodega-id es obligatorio y debe ser un numero entero (int).'}`
+                },
+                id_producto: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Producto-id es obligatorio y debe ser un numero entero (int).'}`
+                },
+                cantidad: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Cantidad-Inventario es obligatorio y debe ser un numero entero (int).'}`
+                },
+                created_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Creado-Por debe ser un numero entero (int).'}`
+                },
+                update_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Por debe ser un numero entero (int).'}`
+                },
+                created_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Creado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                updated_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                deleted_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Eliminado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                }
+            }
+        }
+    }
+});
+
+/* Esquema de 'historiales' */
+use("db_mongo_bodegas");
+db.createCollection("historiales", {
+    capped: true,
+    size: 5000,
+    max: 30,
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            additionalProperties: false,
+            required: ['_id', 'cantidad', 'id_bodega_origen', 'id_bodega_destino', 'id_inventario'],
+            properties: {
+                _id: {
+                    bsonType: "int"
+                },
+                cantidad: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Cantidad-Historial es obligatorio y debe ser un numero entero (int).'}`
+                },
+                id_bodega_origen: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Bodega-Origen es obligatorio y debe ser un numero entero (int).'}`
+                },
+                id_bodega_destino: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Bodega-Destino es obligatorio y debe ser un numero entero (int).'}`
+                },
+                id_inventario: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Inventario-id es obligatorio y debe ser un numero entero (int).'}`
+                },
+                created_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Creado-Por debe ser un numero entero (int).'}`
+                },
+                update_by: {
+                    bsonType: 'int',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Por debe ser un numero entero (int).'}`
+                },
+                created_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Creado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                updated_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Actualizado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                },
+                deleted_at: {
+                    bsonType: 'date',
+                    description: `{"status": "402", "message": 'El parametro Eliminado-Hora debe ser un string en formato YYYY-MM-DD.'}`
+                }
+            }
+        }
+    }
+});
+
