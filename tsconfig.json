@@ -3,15 +3,15 @@
         "target": "es6",
         "module": "es6",
         "moduleResolution": "node",
-        "outDir": "./routes/storage/",
+        "outDir": "./storage/",
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
     "include": [
-        "./routes/storage/*.ts"
+        "./storage/*.ts"
     ],
     "exclude": [
-      "./routes/storage/*.js"
+      "./storage/*.js"
     ]
 }
