@@ -1,5 +1,5 @@
 import rateLimit from 'express-rate-limit';
-export let queryCliente = () => {
+export let limitQuery = () => {
     return rateLimit({
         windowMs: 30 * 1000,
         max: 10,
