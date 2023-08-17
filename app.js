@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import express, { json } from 'express';
 import { appToken, appVerify } from './middleware/token.js';
 import appBodega from './routes/bodegas.routes.js';
+
 dotenv.config();
 const app = express();
 
