@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { plainToClass, classToPlain } from 'class-transformer';
-import {validate} from 'class-validator';
+import { validate } from 'class-validator';
 import { Bodega } from '../storage/bodegas.js';
 import { Router } from "express";
 const appMiddlewareBodegaVerify = Router()
@@ -9,6 +9,7 @@ const appDTOBodega = Router();
 
 appMiddlewareBodegaVerify.use(async(req,res,next) => {
     if(!req.rateLimit) return;
+    
     let {payload} = req.data;
     const {iat, exp, ...newPayload } = payload
     payload = newPayload
@@ -17,7 +18,9 @@ appMiddlewareBodegaVerify.use(async(req,res,next) => {
     (!verify) ? res.status(406).send({status: 406, message: "No Autorizado"}) : next();
 });
 
+
 appDTOBodega.use( async(req,res,next) =>  {
+    
     try {
         let data = plainToClass(Bodega, req.body);
         await validate(data)

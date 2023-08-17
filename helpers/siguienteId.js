@@ -2,7 +2,7 @@ import { coneccion } from "../db/atlas.js";
 
 
 export default async function siguienteId(coleccionName) {
-    let db = await con();
+    let db = await coneccion();
     let countersCollection = db.collection('counters');
 
     const sequenceDocument = await countersCollection.findOneAndUpdate(
