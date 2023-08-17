@@ -9,7 +9,7 @@ let bodegas = db.collection("bodegas");
 
 appBodega.get('/', limitQuery(), appMiddlewareBodegaVerify, async(req, res) => {
     if(!req.rateLimit) return;
-    let result = await bodegas.find().toArray();
+    let result = await bodegas.find().sort({ nombre: 1 }).toArray();
     res.send(result)
 })
 export default appBodega;
