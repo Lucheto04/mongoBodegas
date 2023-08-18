@@ -40,18 +40,14 @@ appBodega.post('/', limitQuery(), appMiddlewareBodegaVerify, appDTOBodega, async
     if (!req.rateLimit) return;
     try {
         const newId = await siguienteId( "bodegas");
-
-        
         const newDocument = {
             _id: newId,
             ...req.body
         };
 
         let result = await bodegas.insertOne(newDocument);
-        console.log(result);
         res.status(201).send({ status: 201, message: 'documento creado con exito' });
     } catch (error) {
-        console.log(error.errInfo.details.schemaRulesNotSatisfied[0]);
         res.status(406).send('no se ha podido crear el documento');
     }
 });
