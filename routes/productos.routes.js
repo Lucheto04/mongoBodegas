@@ -47,7 +47,7 @@ appProducto.post('/', limitQuery(), appMiddlewareProductoVerify, appDTOProducto,
         let result = await producto.insertOne(newDocumentProducto);
 
         const defaultInventario = await inventario.insertOne({
-            _id: Number(siguienteId("inventarios")),
+            _id: await siguienteId("inventarios"),
             id_bodega: 12,
             id_producto: newIdProducto,
             cantidad: 103,
