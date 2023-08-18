@@ -3,7 +3,7 @@ import { IsDefined} from 'class-validator';
 export class Producto {
 
     @Expose({ name: 'Nombre-Producto' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `El Nombre-Producto es obligatoria`}}})
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Nombre-Producto es obligatorio y debe ser un string.`}}})
     nombre: string;
 
     @Expose({ name: 'Descripcion-Producto' })
@@ -11,11 +11,11 @@ export class Producto {
     descripcion: string;
 
     @Expose({ name: 'Estado-Producto' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `La estado es obligatoria`}}})
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Estado-Producto es obligatorio y debe ser un numero entero (int).`}}})
     estado: number;
 
     @Expose({ name: 'Creado-Por' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `La Creado-Por es obligatoria`}}})
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Creado-Por es obligatorio y debe ser un numero entero (int).`}}})
     created_by: number;
 
     @Expose({ name: 'Actualizado-Por' })
