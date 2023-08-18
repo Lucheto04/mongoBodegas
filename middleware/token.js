@@ -2,19 +2,23 @@ import { plainToClass, classToPlain } from 'class-transformer';
 import dotenv from 'dotenv';
 import {Router} from 'express';
 import { Bodega } from '../storage/bodegas.js';
-
+import { Producto } from '../storage/productos.js';
 import { SignJWT, jwtVerify } from 'jose';
 dotenv.config('../');
 
 const appToken = Router();
 const appVerify = Router();
+
 const createInstance = (className) => {
     const classMap = {
         'bodegas': Bodega,
+        'productos': Producto
     };
     const Class = classMap[className];
     return (Class) ? plainToClass(Class, {}, { ignoreDecorators: true }) : undefined;
 };
+
+
 appToken.use("/:collection", async (req, res) => {
     try {
         const collectionName = req.params.collection;

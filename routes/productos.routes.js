@@ -2,17 +2,37 @@ import { coneccion } from "../db/atlas.js";
 import { limitQuery } from "../helpers/limitQuerys.js";
 import { appMiddlewareProductoVerify, appDTOProducto } from "../middleware/middle.productos.js";
 import { Router } from "express";
-import siguienteId from "../helpers/siguienteId.js";
 let appProducto = Router();
 
 let db = await coneccion();
-let producto = db.collection("productos");
+let inventario = db.collection("inventarios");
 
-appProducto.get('/orden', appMiddlewareProductoVerify, async(req, res) =>{
+appProducto.get('/', limitQuery(), appMiddlewareProductoVerify, async(req, res) =>{
     if(!req.rateLimit) return;
 
 
-    let result = await producto.aggregate(campo_total).toArray();
+    let result = await inventario.aggregate([
+        {
+            $lookup: {
+              from: "productos",
+              localField: "id_producto",
+              foreignField: "_id",
+              as: "producto"
+            }
+        },
+        {
+            $unwind: "$producto"
+        },
+        {
+            $group: {
+              _id: "$producto._id",
+              Total: { $sum: "$cantidad" }
+            }
+        },
+        {
+            $sort: {Total: -1}
+        }
+    ]).toArray();
     res.send(result)
 })
 
