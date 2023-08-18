@@ -501,7 +501,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 12,
-        id_producto: 18,
+        id_producto: 1,
         cantidad: 103,
         created_by: 11,
         created_at: ISODate('2023-05-26')
@@ -509,35 +509,35 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 19,
-        id_producto: 18,
+        id_producto: 1,
         cantidad: 220,
         created_by: 19
     },
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 20,
-        id_producto: 13,
+        id_producto: 2,
         cantidad: 13,
         created_by: 14
     },
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 19,
-        id_producto: 14,
+        id_producto: 3,
         cantidad: 7,
         created_by: 15
     },
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 12,
-        id_producto: 27,
+        id_producto: 4,
         cantidad: 9,
         created_by: 16
     },
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 19,
-        id_producto: 23,
+        id_producto: 5,
         cantidad: 45666,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -545,7 +545,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 26,
-        id_producto: 24,
+        id_producto: 6,
         cantidad: 45000,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -553,7 +553,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 26,
-        id_producto: 25,
+        id_producto: 7,
         cantidad: 45666,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -561,7 +561,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 26,
-        id_producto: 26,
+        id_producto: 8,
         cantidad: 6000,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -569,7 +569,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 28,
-        id_producto: 27,
+        id_producto: 4,
         cantidad: 89700,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -577,7 +577,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 23,
-        id_producto: 28,
+        id_producto: 9,
         cantidad: 9999,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -585,7 +585,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 18,
-        id_producto: 18,
+        id_producto: 1,
         cantidad: 7898,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -593,7 +593,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 18,
-        id_producto: 27,
+        id_producto: 4,
         cantidad: 55281,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -601,7 +601,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 29,
-        id_producto: 29,
+        id_producto: 10,
         cantidad: 5993,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
@@ -609,7 +609,7 @@ db.inventarios.insertMany([
     {
         _id: Number(siguienteId("inventarios")),
         id_bodega: 29,
-        id_producto: 27,
+        id_producto: 4,
         cantidad: 5005,
         created_at: ISODate('2022-06-03'),
         updated_at: ISODate('2022-06-03')
